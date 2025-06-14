@@ -8,8 +8,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    CRUD: typeof import('./src/components/CRUD.vue')['default']
     Table: typeof import('./src/components/Table.vue')['default']
+    Tasks: typeof import('./src/components/Tasks.vue')['default']
+    Temp: typeof import('./src/components/temp.vue')['default']
     Users: typeof import('./src/components/Users.vue')['default']
   }
 }
