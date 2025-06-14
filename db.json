@@ -1,0 +1,42 @@
+{
+  "tasks": [
+    {
+      "id": "4",
+      "title": "New Task",
+      "description": "Task Description",
+      "assignedToUserId": 1,
+      "status": "todo"
+    },
+    {
+      "id": "4",
+      "title": "New Task",
+      "description": "Task Description",
+      "assignedToUserId": 1,
+      "status": "todo"
+    },
+    {
+      "id": "4",
+      "title": "New Task",
+      "description": "Task Description",
+      "assignedToUserId": 1,
+      "status": "todo"
+    },
+    {
+      "id": "4",
+      "title": "New Task",
+      "description": "Task Description",
+      "assignedToUserId": 1,
+      "status": "todo"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "User 1"
+    },
+    {
+      "id": "2",
+      "name": "User 2"
+    }
+  ]
+}
