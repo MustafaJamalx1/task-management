@@ -38,8 +38,8 @@
 <script setup lang="ts">
 import {ref,onMounted} from 'vue'
 import axios from 'axios'
-import type {Task} from './crud'
-import {fetchItems,createItem,updateItem,deleteItem,getItem,loading} from './crud'
+import type {Task} from './CRUD'
+import {fetchItems,createItem,updateItem,deleteItem,getItem,loading} from './CRUD'
 
 onMounted(async ()=>{
   tasks.value = await fetchItems(API_URL) as Task[];
