@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
-import Tasks from './components/Tasks.vue'
-import Users from './components/Users.vue'
+import Tasks from './pages/Tasks.vue'
+import Users from './pages/Users.vue'
 import App from './App.vue'
 import { components } from 'vuetify/dist/vuetify.js'
 

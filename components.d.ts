@@ -8,13 +8,15 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/UpsertTask copy.vue')['default']
+    CeateUser: typeof import('./src/components/CeateUser.vue')['default']
+    copy: typeof import('./src/components/CreateTask copy.vue')['default']
+    CreateTask: typeof import('./src/components/CreateTask.vue')['default']
+    CreateUser: typeof import('./src/components/CreateUser.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Table: typeof import('./src/components/Table.vue')['default']
     Tasks: typeof import('./src/components/Tasks.vue')['default']
-    Temp: typeof import('./src/components/temp.vue')['default']
-    Upsert: typeof import('./src/components/Upsert.vue')['default']
+    UpdateTask: typeof import('./src/components/UpdateTask.vue')['default']
+    UpdateUser: typeof import('./src/components/UpdateUser.vue')['default']
     UpsertTask: typeof import('./src/components/UpsertTask.vue')['default']
     UpsertUser: typeof import('./src/components/UpsertUser.vue')['default']
     Users: typeof import('./src/components/Users.vue')['default']

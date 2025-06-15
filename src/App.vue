@@ -1,56 +1,45 @@
 <template>
   <v-app>
+    <v-navigation-drawer app color="primary" dark>
+      <v-list density="compact" nav>
+        <v-list-item
+        v-for="item in navItems"
+        :key="item.title"
+        :to="`/${item.href}`"
+        link
+        class="nav-item"
+        rounded="lg"
+        active-class="nav-item--active"
+        >
+        <v-list-item-icon>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
+  <router-view />
     <v-main>
-      <v-navigation-drawer >
-        <v-list>
-          <v-list-item title="Tasks" href="tasks"></v-list-item>
-
-          <v-list-item title="Users" href="users"></v-list-item>
-          
-          
-        </v-list>
-      </v-navigation-drawer>
-      <router-view />
-      <v-container>
-
-
-   <!-- <temp></temp> -->
-      <!-- <Tasks />
-      <Users /> -->
-      
-      
-   
-
-
-    
-</v-container>
-</v-main>
-</v-app>
+      <v-container fluid>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<script setup lang="ts">
-import Tasks from './components/Tasks.vue'
-import Users from './components/Users.vue';
-import router from '@/router';
-
-
-
-
-// const routes:Record<string,Component> = {
- 
-//   '/tasks': Tasks
-// }
-
-// const currentPath = ref<string>(window.location.hash)
-
-// window.addEventListener('hashchange', () => {
-//   currentPath.value = window.location.hash
-// })
-
-// const currentView = computed(() => {
-//   return routes[currentPath.value.slice(1)]
-// })
-
-/////////////////////////////////////////
-
+<script setup>
+const navItems = [
+  { title: 'Tasks', href: 'tasks', icon: 'mdi-format-list-checkbox' },
+  { title: 'Users', href: 'users', icon: 'mdi-account-group' }
+];
 </script>
+
+<style scoped>
+.nav-item {
+  margin-bottom: 4px;
+  transition: background 0.2s;
+}
+.nav-item--active,
+.nav-item:hover {
+  background: rgba(255,255,255,0.12);
+}
+</style>
