@@ -1,20 +1,17 @@
-
-
 import axios from 'axios'
 import {ref} from 'vue';
 export interface User {
-  id: number;
-  Name: string;
+  id: string;
+  name: string;
 }
 export interface Task {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  assignedToUserId: number;
+  assignedToUserId: string;
   status: 'pending' | 'completed'|'todo';
 }
  export const loading =ref(false)
-import type from './Users.vue'
 const data = ref<User[]|Task[]>([]);
 
 
@@ -32,7 +29,7 @@ const data = ref<User[]|Task[]>([]);
         return data.value;
       }
     }
-    export async function deleteItem(API_URL:string,id:number):Promise<void>{
+    export async function deleteItem(API_URL:string,id:string):Promise<void>{
       try {
         console.log('Deleting task with id:', id);
         console.log('DELETE URL:', `${API_URL}/${id}`);
@@ -44,43 +41,36 @@ const data = ref<User[]|Task[]>([]);
         console.error('Error deleting task:', error);
       }
     }
-    export async function createItem(API_URL:string,task:User) {
+    export async function createItem(API_URL:string,task:User|Task):Promise<Task|User> {
       try{
-        
-        const response = await axios.post(API_URL,task)
+        const response = await axios.post(API_URL,task);
         console.log(response);
         fetchItems(API_URL);
+        return response.data;
       }catch(error){
         console.log(error);
+        throw error;
       }
     }
     
-    export async function getItem(API_URL:string,id:number):Promise<void>{
+    export async function getItem(API_URL: string, id: string): Promise<Task | User | null> {
       try {
-        console.log('Getting task with id:', id);
-        console.log('Get URL:', `${API_URL}/${id}`);
-        await axios.get(`${API_URL}/${id}`);
-        console.log('Task fetched successfully');
-        // Optionally refresh tasks after deletion
-        await fetchItems(API_URL);
-      } catch(error) {
+        const response = await axios.get(`${API_URL}/${id}`);
+        return response.data;
+      } catch (error) {
         console.error('Error Getting task:', error);
+        return null;
       }
     }
     
     
     //
-    export async function updateItem(API_URL:string,task:User):Promise<void>{
+    export async function updateItem(API_URL: string, task: Task | User): Promise<void> {
       try {
-        console.log('Deleting task with id:', task.id);
-        console.log('DELETE URL:', `${API_URL}/${task.id}`);
-        await axios.put(`${API_URL}/${task.id}`);
-        console.log('Task deleted successfully');
-        // Optionally refresh tasks after deletion
+        await axios.put(`${API_URL}/${task.id}`, task);
         await fetchItems(API_URL);
-      } catch(error) {
-        console.error('Error deleting task:', error);
+      } catch (error) {
+        console.error('Error updating item:', error);
       }
     }
-    
-    
+
