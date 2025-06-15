@@ -1,27 +1,5 @@
 {
-  "tasks": [
-    {
-      "id": "1",
-      "title": "New Task",
-      "description": "Task Description",
-      "assignedToUserId": 1,
-      "status": "todo"
-    },
-    {
-      "id": "2",
-      "title": " Task",
-      "description": "Task Description",
-      "assignedToUserId": 1,
-      "status": "completed"
-    },
-    {
-      "id": "3",
-      "title": "New Task",
-      "description": "Task Description",
-      "assignedToUserId": 1,
-      "status": "todo"
-    }
-  ],
+  "tasks": [],
   "users": [
     {
       "id": "1",
