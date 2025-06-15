@@ -3,19 +3,20 @@
     <v-main>
       <v-navigation-drawer >
         <v-list>
-          <v-list-item title="Tasks" ></v-list-item>
+          <v-list-item title="Tasks" href="tasks"></v-list-item>
 
-          <v-list-item title="Users" ></v-list-item>
-
+          <v-list-item title="Users" href="users"></v-list-item>
+          
           
         </v-list>
       </v-navigation-drawer>
+      <router-view />
       <v-container>
 
 
    <!-- <temp></temp> -->
-      <Tasks />
-      <Users></Users>
+      <!-- <Tasks />
+      <Users /> -->
       
       
    
@@ -30,6 +31,7 @@
 <script setup lang="ts">
 import Tasks from './components/Tasks.vue'
 import Users from './components/Users.vue';
+import router from '@/router';
 
 
 
