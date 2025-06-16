@@ -33,7 +33,7 @@
                 item-title="text"
                 item-value="value"
                 prepend-inner-icon="mdi-account"
-                :rules="assignRules"
+                
                 class="mb-4"
                 required
             />
@@ -42,6 +42,7 @@
                 :items="['todo', 'in-progress', 'done']"
                 label="Status"
                 name="status"
+                :rules="status"
                 prepend-inner-icon="mdi-progress-check"
                 class="mb-4"
             />
@@ -57,7 +58,6 @@ import { ref, onMounted } from 'vue'
 import { fetchItems, createItem } from './CRUD'
 import type { Task, User } from './CRUD'
 import BackButton from './BackButton.vue'
-import Tasks from '@/pages/Tasks.vue'
 
 const TASKS_API = 'http://localhost:3000/tasks'
 const USERS_API = 'http://localhost:3000/users'
@@ -65,14 +65,14 @@ const USERS_API = 'http://localhost:3000/users'
 const userOptions = ref<{ value: string; text: string }[]>([])
 const data = ref<Task>({} as Task)
 const form = ref()
-const formValid = ref(true)
+const formValid = ref(false)
 
 const titleRules = [
     (v: string) => !!v || 'Title is required',
     (v: string) => (v && v.length >= 3) || 'Title must be at least 3 characters'
 ]
-const assignRules = [
-    (v: string) => !!v || 'Assigned user is required'
+const status = [
+    (v: string) => !!v || 'status is required'
 ]
 
 
@@ -81,10 +81,11 @@ onMounted(async () => {
     userOptions.value = users.map(user => ({ value: user.id, text: user.name }))
 })
 
-const onSubmit = () => {
-    if (form.value?.validate()) {
-        createItem(TASKS_API, data.value)
-        window.history.back()
+const onSubmit = async () => {
+    const { valid } = await form.value.validate();
+    if (valid) {
+        await createItem(TASKS_API, data.value);
+        window.location.reload();
     }
 }
 </script>

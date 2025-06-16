@@ -65,7 +65,7 @@ const userOptions = ref<{ value: string; text: string }[]>([])
 const data = ref<Task>({} as Task)
 
 const formRef = ref()
-const formValid = ref(true)
+const formValid = ref(false)
 
 const titleRules = [
     (v: string) => !!v || 'Title is required',
@@ -92,9 +92,10 @@ watch(
 )
 
 const onSubmit = async () => {
-    // Validate the form before submitting
-if (formRef.value?.validate()) {
-        updateItem(TASKS_API, data.value)
+    const {valid} = await formRef.value?.validate();
+    if (valid) {
+        await updateItem(TASKS_API, data.value);
+        window.location.reload();
     }
 }
 </script>

@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "c3d4",
-      "title": "Setup database",
+      "title": "set up database",
       "description": "Install and configure PostgreSQL",
       "assignedToUserId": "x9k3",
       "status": "in-progress"
@@ -46,7 +46,7 @@
       "id": "p5q6",
       "title": "UI improvements",
       "description": "Improve dashboard UI",
-      "assignedToUserId": "z7w2",
+      "assignedToUserId": "x9k3",
       "status": "done"
     },
     {
@@ -55,13 +55,6 @@
       "description": "Optimize SQL queries for reports",
       "assignedToUserId": "m2n5",
       "status": "in-progress"
-    },
-    {
-      "id": "t9u0",
-      "title": "Add notifications",
-      "description": "Implement email notifications",
-      "assignedToUserId": "s6t4",
-      "status": "todo"
     }
   ],
   "users": [
@@ -71,7 +64,7 @@
     },
     {
       "id": "p4q8",
-      "name": "Bob"
+      "name": "bob"
     },
     {
       "id": "z7w2",

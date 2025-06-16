@@ -32,7 +32,7 @@ const props = defineProps<{ id: string }>()
 
 const data = ref({} as User)
 const formRef = ref()
-const formValid = ref(true)
+const formValid = ref(false)
 
 const nameRules = [
   (v: string) => !!v || 'Name is required',
@@ -51,8 +51,10 @@ watch(
 )
 
 const onSubmit = async () => {
-  if (formRef.value?.validate()) {
-    updateItem(USERS_API, data.value)
+  const { valid } = await formRef.value?.validate()
+  if (valid) {
+    await updateItem(USERS_API, data.value)
+    window.location.reload()
   }
 }
 </script>

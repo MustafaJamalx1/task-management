@@ -94,7 +94,7 @@ const searchValue = ref('')
 const selectedId = ref<string>('')
 
 const headers = [
-  { title: 'ID', key: 'id' },
+ 
   { title: 'Title', key: 'title' },
   { title: 'Description', key: 'description' },
   { title: 'Assigned To User Id', key: 'assignedToUserId' },

@@ -39,10 +39,11 @@ const nameRules = [
   (v: string) => (v && v.length >= 2) || 'Name must be at least 2 characters'
 ]
 
-const onSubmit = () => {
-    if (form.value?.validate()) {
-        createItem(USERS_API, data.value)
-        window.history.back()
+const onSubmit = async () => {
+    const {valid} = await form.value?.validate();
+    if (valid) {
+        await createItem(USERS_API, data.value);
+        window.location.reload()
     }
 }
 </script>
