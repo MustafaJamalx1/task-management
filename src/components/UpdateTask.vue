@@ -1,11 +1,11 @@
 <template>
-        <BackButton href="/tasks" class="go-back-btn" />
+    <BackButton href="/tasks" class="go-back-btn" />
 
     <v-card class="pa-6" max-width="500" elevation="8">
         <v-card-title class="text-h5 mb-4">
             Edit Task
         </v-card-title>
-        <v-form>
+        <v-form ref="formRef" v-model="formValid">
             <v-text-field
                 v-model="data.title"
                 label="Title"
@@ -13,6 +13,7 @@
                 prepend-inner-icon="mdi-format-title"
                 required
                 class="mb-4"
+                :rules="titleRules"
             />
             <v-textarea
                 v-model="data.description"
@@ -33,6 +34,7 @@
                 prepend-inner-icon="mdi-account"
                 class="mb-4"
                 required
+                :rules="assignedToRules"
             />
             <v-select
                 v-model="data.status"
@@ -43,7 +45,7 @@
                 class="mb-4"
                 required
             />
-            <v-btn color="primary" block class="mt-2" type="submit" @click="updateItem(TASKS_API, data)">
+            <v-btn color="primary" block class="mt-2" type="submit" @click.prevent="onSubmit">
                 Update Task
             </v-btn>
         </v-form>
@@ -62,6 +64,17 @@ const props = defineProps<{ id: string }>()
 const userOptions = ref<{ value: string; text: string }[]>([])
 const data = ref<Task>({} as Task)
 
+const formRef = ref()
+const formValid = ref(true)
+
+const titleRules = [
+    (v: string) => !!v || 'Title is required',
+    (v: string) => (v && v.length >= 3) || 'Title must be at least 3 characters'
+]
+const assignedToRules = [
+    (v: string) => !!v || 'Assigned user is required'
+]
+
 onMounted(async () => {
     const users = await fetchItems(USERS_API) as User[]
     userOptions.value = users.map(user => ({ value: user.id, text: user.name }))
@@ -77,4 +90,11 @@ watch(
     },
     { immediate: true }
 )
+
+const onSubmit = async () => {
+    // Validate the form before submitting
+if (formRef.value?.validate()) {
+        updateItem(TASKS_API, data.value)
+    }
+}
 </script>

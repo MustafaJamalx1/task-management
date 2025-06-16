@@ -40,16 +40,51 @@
         </template>
         <template #item.userTasks="{ item }">
           <div v-if="userTasks(item).length">
+            <template v-if="userTasks(item).length <= 5">
+              <v-chip
+          v-for="task in userTasks(item)"
+          :key="task.id"
+          class="ma-1"
+          color="primary"
+          variant="outlined"
+          size="small"
+              >
+          {{ task.title }}
+              </v-chip>
+            </template>
+            <template v-else>
+              <v-chip
+          v-for="task in userTasks(item).slice(0, 5)"
+          :key="task.id"
+          class="ma-1"
+          color="primary"
+          variant="outlined"
+          size="small"
+              >
+          {{ task.title }}
+              </v-chip>
+              <v-menu>
+          <template #activator="{ props }">
             <v-chip
-              v-for="task in userTasks(item)"
-              :key="task.id"
+              v-bind="props"
               class="ma-1"
               color="primary"
               variant="outlined"
               size="small"
             >
-              {{ task.title }}
+              +{{ userTasks(item).length - 5 }} more
             </v-chip>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="task in userTasks(item).slice(5)"
+              :key="task.id"
+            >
+              <v-list-item-title>{{ task.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+              </v-menu>
+            </template>
           </div>
           <span v-else class="text-grey">No tasks</span>
         </template>

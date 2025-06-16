@@ -4,28 +4,28 @@
       "id": "c3d4",
       "title": "Setup database",
       "description": "Install and configure PostgreSQL",
-      "assignedToUserId": "p4q8",
+      "assignedToUserId": "x9k3",
       "status": "in-progress"
     },
     {
       "id": "e5f6",
       "title": "API integration",
       "description": "Integrate payment gateway API",
-      "assignedToUserId": "z7w2",
+      "assignedToUserId": "x9k3",
       "status": "in-review"
     },
     {
       "id": "g7h8",
       "title": "Write tests",
       "description": "Write unit tests for user module",
-      "assignedToUserId": "m2n5",
+      "assignedToUserId": "x9k3",
       "status": "done"
     },
     {
       "id": "j9k0",
       "title": "Fix bugs",
       "description": "Resolve login issues",
-      "assignedToUserId": "s6t4",
+      "assignedToUserId": "x9k3",
       "status": "in-progress"
     },
     {
@@ -39,7 +39,7 @@
       "id": "n3o4",
       "title": "Deploy app",
       "description": "Deploy to production server",
-      "assignedToUserId": "p4q8",
+      "assignedToUserId": "x9k3",
       "status": "in-review"
     },
     {
@@ -62,19 +62,6 @@
       "description": "Implement email notifications",
       "assignedToUserId": "s6t4",
       "status": "todo"
-    },
-    {
-      "id": "200d",
-      "assignedToUserId": "p4q8",
-      "title": "raid",
-      "status": "done"
-    },
-    {
-      "id": "269a",
-      "title": "rami",
-      "description": "aksljdaklj",
-      "assignedToUserId": "s6t4",
-      "status": "todo"
     }
   ],
   "users": [
@@ -88,7 +75,7 @@
     },
     {
       "id": "z7w2",
-      "name": "Charlie"
+      "name": "Charl"
     },
     {
       "id": "m2n5",
