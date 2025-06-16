@@ -1,4 +1,7 @@
 <template>
+  
+        <BackButton href="/users" class="go-back-btn" />
+
   <v-card class="pa-6" max-width="500" elevation="8">
     <v-card-title class="text-h5 mb-4">
       Edit User

@@ -1,4 +1,6 @@
 <template>
+        <BackButton href="/users" class="go-back-btn" />
+
     <v-card class="pa-6" max-width="500" elevation="8">
         <v-card-title class="text-h5 mb-4">
             Create User
@@ -13,7 +15,7 @@
                 class="mb-4"
             />
             <v-btn color="primary" block class="mt-2" type="submit" @click="createItem(USERS_API, data)">
-                Update Task
+                Create User
             </v-btn>
         </v-form>
     </v-card>
@@ -23,6 +25,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { fetchItems, createItem, getItem } from './CRUD'
 import type { Task, User } from './CRUD'
+import BackButton from './BackButton.vue'
 
 const USERS_API = 'http://localhost:3000/users'
 

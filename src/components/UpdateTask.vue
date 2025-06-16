@@ -1,4 +1,6 @@
 <template>
+        <BackButton href="/tasks" class="go-back-btn" />
+
     <v-card class="pa-6" max-width="500" elevation="8">
         <v-card-title class="text-h5 mb-4">
             Edit Task
@@ -52,7 +54,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { fetchItems, updateItem, getItem } from './CRUD'
 import type { Task, User } from './CRUD'
-
+import BackButton from './BackButton.vue'
 const TASKS_API = 'http://localhost:3000/tasks'
 const USERS_API = 'http://localhost:3000/users'
 

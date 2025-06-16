@@ -1,18 +1,11 @@
 {
   "tasks": [
     {
-      "id": "a1b2",
-      "title": "Design homepage",
-      "description": "Create wireframes for homepage",
-      "assignedToUserId": "x9k3",
-      "status": "in-progress"
-    },
-    {
       "id": "c3d4",
       "title": "Setup database",
       "description": "Install and configure PostgreSQL",
-      "assignedToUserId": "x9k3",
-      "status": "todo"
+      "assignedToUserId": "p4q8",
+      "status": "in-progress"
     },
     {
       "id": "e5f6",
@@ -67,6 +60,19 @@
       "id": "t9u0",
       "title": "Add notifications",
       "description": "Implement email notifications",
+      "assignedToUserId": "s6t4",
+      "status": "todo"
+    },
+    {
+      "id": "200d",
+      "assignedToUserId": "p4q8",
+      "title": "raid",
+      "status": "done"
+    },
+    {
+      "id": "269a",
+      "title": "rami",
+      "description": "aksljdaklj",
       "assignedToUserId": "s6t4",
       "status": "todo"
     }

@@ -74,9 +74,21 @@
         </template>
       </v-data-table>
     </v-card>
-
-    <CreateUser v-if="showCreate" class="mt-6" @close="showCreate = false; reload()" />
-    <UpdateUser v-if="showUpdate" :id="selectedId" class="mt-6" @close="showUpdate = false; reload()" />
+    <v-row align="center" justify="center" class="mt-6" style="min-height: 60vh;">
+      <v-col cols="12" md="8" lg="6">
+      <CreateUser
+        v-if="showCreate"
+        @close="showCreate = false; reload()"
+        class="pa-8"
+      />
+      <UpdateUser
+        v-if="showUpdate"
+        :id="selectedId"
+        @close="showUpdate = false; reload()"
+        class="pa-8"
+      />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

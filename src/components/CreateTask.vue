@@ -1,4 +1,7 @@
 <template>
+    <div class="mb-4" style="display: flex; justify-content: flex-start;">
+        <BackButton href="/tasks" class="go-back-btn" />
+    </div>
     <v-card class="pa-6" max-width="500" elevation="8">
         <v-card-title class="text-h5 mb-4">
             Create Task
@@ -42,7 +45,7 @@
                 required
             />
             <v-btn color="primary" block class="mt-2" type="submit" @click="createItem(TASKS_API, data)">
-                Update Task
+                Create Task
             </v-btn>
         </v-form>
     </v-card>
@@ -52,6 +55,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { fetchItems, createItem, getItem } from './CRUD'
 import type { Task, User } from './CRUD'
+import BackButton from './BackButton.vue'
 
 const TASKS_API = 'http://localhost:3000/tasks'
 const USERS_API = 'http://localhost:3000/users'

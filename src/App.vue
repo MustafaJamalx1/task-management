@@ -2,22 +2,21 @@
   <v-app>
     <v-navigation-drawer app color="primary" dark>
       <v-list density="compact" nav>
-        <v-list-item
+      <v-list-item
         v-for="item in navItems"
         :key="item.title"
         :to="`/${item.href}`"
-        link
         class="nav-item"
         rounded="lg"
         active-class="nav-item--active"
-        >
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      >
+        <template #prepend>
+        <v-icon>{{ item.icon }}</v-icon>
+        </template>
+        <v-list-item-title style="font-size: 1.25rem;">{{ item.title }}</v-list-item-title>
       </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+      </v-list>
+    </v-navigation-drawer>
   <router-view />
     <v-main>
       <v-container fluid>
